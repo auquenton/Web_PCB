@@ -1,0 +1,5 @@
+{
+    "name": "Pytorch-ABCD-Recogniton",
+    "description": "resnet18 built using PyTorch",
+    "keywords": ["python", "flask", "bootstrap", "pytorch", "resnet18"]
+  }

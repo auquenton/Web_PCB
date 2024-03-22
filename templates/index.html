@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cloud PCB Detection</title>
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!--logo-->
+    <link rel="icon" href="{{url_for('static', filename='img/logo-icon.svg')}}" type="images/x-ico" />
+</head>
+
+<body>
+    <div class="container text-center">
+        <div>
+            <img class="mt-1" src="{{url_for('static', filename='img/logo-icon.svg')}}" width="72">
+            <h1 class="h3 m-1 font-weight-normal">Cloud PCB Detection</h1>
+        </div>
+        <div class="m-1">
+            <form method=post enctype=multipart/form-data action="/upload" id="form">
+                <div class="form-group">
+                    <div class="text-center">
+                        <label for="inputfile" class="">
+                            <img id="imgShowHere" src="{{url_for('static', filename='img/uploadBg.png')}}" style="max-height: 500px;min-height: 500px;min-width: 500px;" class="img-thumbnail">
+                            <img id="out" src="{{url_for('static', filename='img/uploadBg.png')}}" style="max-height: 500px;min-height: 500px;min-width: 500px;" class="img-thumbnail">
+                        </label>
+                        <input type="file" name="file" class="" id="inputfile" style="display: none;">
+                    </div>
+                    <div class="text-center m-1">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="cloud-cover" id="inlineRadio1" value="PK_PCB" checked="checked">
+                            <label class="form-check-label" for="inlineRadio1">Original PCB</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="cloud-cover" id="inlineRadio2" value="Deep_PCB">
+                            <label class="form-check-label" for="inlineRadio2">Binarization PCB</label>
+                        </div>
+                    </div>
+                    <div class="m-1">
+                        <button class="btn btn-primary" id="upload" type="button">Upload</button>
+                        <a href="{{ url_for('result_original_PCB') }}" class="btn btn-success" title="test result of PCB Detection">Result-original-PCB</a>
+                        <a href="{{ url_for('result_DeepPCB') }}" class="btn btn-info" title="test result of thick PCB Detection">Result-DeepPCB</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div>
+            <p class="mb-1 text-muted">Built using Pytorch, Flask and Bootstrap</p>
+        </div>
+    </div>
+    <!--Bootstrap Js-->
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!--Upload Js-->
+    <script src="{{url_for('static', filename='js/index.js')}}"></script>
+   
+</body>
+
+</html>
